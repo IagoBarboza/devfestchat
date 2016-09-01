@@ -1,0 +1,20 @@
+{
+  "name": "iVozes-Web",
+  "version": "0.0.1",
+  "description": "Web Platform for Questionnaires Management ",
+  "repository": {
+    "type": "git",
+    "url": "https://iagobarboza@bitbucket.org/iagobarboza/ivozes-web.git"
+  },
+  "author": "iagobarboza",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.7",
+    "angular-aria": "^1.5.7",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-route": "^1.5.7",
+    "angularfire": "^2.0.1",
+    "angularjs": "0.0.1",
+    "firebase": "^3.2.0"
+  }
+}

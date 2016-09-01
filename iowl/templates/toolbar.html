@@ -1,0 +1,13 @@
+<md-toolbar layout="row" class="md-hue-2" ng-show="IOWLToolbarService.isEnabled()">
+	<div layout="column" layout-align="start center" class="md-toolbar-tools">
+		<div ng-show="IOWLToolbarService.isEnabled('back-button')" style="width:100%; margin-top:15px;">
+			<md-button ng-click="IOWLToolbarService.back()">Voltar</md-button>	
+		</div>
+		<div ng-show="IOWLToolbarService.isEnabled('back-button')" layout="row" style="width:100%; margin-top:-15px;" layout-align="center center" ng-click="IOWLToolbarService.titleClick($event)">
+			<h1>{{IOWLToolbarService.title()}}</h1>
+		</div>
+		<div flex layout="row" ng-show="!IOWLToolbarService.isEnabled('back-button')" layout-align="center center" ng-click="IOWLToolbarService.titleClick($event)">
+			<h1>{{IOWLToolbarService.title()}}</h1>
+		</div>
+	</div>
+</md-toolbar>
