@@ -1,4 +1,4 @@
-angular.module('app.chat', ['firebase'])
+angular.module('app.chat', ['firebase', 'luegg.directives'])
 	
 	.factory('ChatService', function($firebaseArray) {
 	
@@ -11,12 +11,31 @@ angular.module('app.chat', ['firebase'])
 		};
 	})
 
-	.controller('ChatCtrl', function ($scope, IOWLToolbarService, ChatService) {
+	.controller('ChatCtrl', function ($scope, IOWLToolbarService, ChatService, $anchorScroll, $location) {
 		// TOOLBAR
 		IOWLToolbarService.enable();
 		IOWLToolbarService.setTitle('DevFestChat');
 		IOWLToolbarService.disable('back-button');		
 		
+		// LOAD CHAT ARRAY
 		$scope.chat = ChatService.chat();
+		$scope.chat.$loaded(function(){
+			// scroll bottom
+		})
+
+		// SETUP
+		$scope.username = "";
+		$scope.newMessage = ""
+
+		// SEND MESSAGE
+		$scope.sendMessage = function(){
+			$scope.chat.$add({
+				username: $scope.username,
+				message: $scope.newMessage
+			});
+			$scope.newMessage = "";
+			// scrool bottom
+		}
+
 
 	});

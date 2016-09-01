@@ -1,5 +1,22 @@
-<md-content flex layout="column" layout-align="start start">
-	<div layout-padding ng-repeat="message in chat">
+<!-- MESSAGES -->
+<md-content scroll-glue id="messages-container" flex="90" layout="column" layout-align="start start">
+	<div style="margin-bottom:5px" id="anchor{{$index}}" class="achor" layout-padding ng-repeat="message in chat">
 		<p>{{message.username}}: {{message.message}}</p>
 	</div>
 </md-content>
+
+<!-- NEW MESSAGE BAR-->
+<md-toolbar class="md-hue-2">
+	<div layout="row" layout-align="start center" class="md-toolbar-tools">
+		
+		<!-- USERNAME -->
+		<input ng-model="username" flex="20" type="text" placeholder="user">
+		
+		<!-- MESSAGE -->
+		<input ng-model="newMessage" style="margin-left:3px;" flex="70" type="text" placeholder="message">
+
+		<!-- SEND BUTTON -->
+		<md-button ng-disabled=' username=="" || newMessage=="" ' flex="10" ng-click="sendMessage()">ENVIAR</md-button>	
+		
+	</div>
+</md-toolbar>
